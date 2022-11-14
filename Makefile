@@ -84,22 +84,22 @@ $(SRC_ROOT_DIR): deps/mDNSResponder-$(MDNSRESPONDER_VSN).tar.gz c_src/mDNSRespon
 # The daemon
 #
 
-$(INSTALL_DIR)/priv/mdnsd: $(SRC_ROOT_DIR)
-	make -C $(SRC_ROOT_DIR)/mDNSPosix Daemon os=$(TARGET_OS) CC=$(CC) STRIP="$(STRIP)" BUILDDIR=$(INSTALL_DIR)/priv $(TARGET_OPTS) 2>&1
+$(INSTALL_DIR)/priv/mdnsd: $(SRC_ROOT_DIR2)
+	make -C $(SRC_ROOT_DIR2)/mDNSPosix Daemon os=$(TARGET_OS) CC=$(CC) STRIP="$(STRIP)" BUILDDIR=$(INSTALL_DIR)/priv $(TARGET_OPTS) 2>&1
 
 ##
 # The port driver
 #
 
-$(BUILD_DRV_DIR)/libdns_sd.so.1: $(SRC_ROOT_DIR)
-	make -C $(SRC_ROOT_DIR)/mDNSPosix libdns_sd os=$(TARGET_OS) CC=$(CC) STRIP="$(STRIP)" BUILDDIR=$(BUILD_DRV_DIR) OBJDIR=$(BUILD_DRV_DIR) $(TARGET_OPTS) 2>&1
+$(BUILD_DRV_DIR)/libdns_sd.so.1: $(SRC_ROOT_DIR2)
+	make -C $(SRC_ROOT_DIR2)/mDNSPosix libdns_sd os=$(TARGET_OS) CC=$(CC) STRIP="$(STRIP)" BUILDDIR=$(BUILD_DRV_DIR) OBJDIR=$(BUILD_DRV_DIR) $(TARGET_OPTS) 2>&1
 
 $(BUILD_DRV_DIR)/dnssd.o: c_src/dnssd.c
-	$(CC) -c $(ERL_CFLAGS) $(CFLAGS) -I $(SRC_ROOT_DIR)/mDNSShared -o $@ $<
+	$(CC) -c $(ERL_CFLAGS) $(CFLAGS) -I $(SRC_ROOT_DIR2)/mDNSShared -o $@ $<
 
 $(INSTALL_DIR)/priv/dnssd_drv.so: $(BUILD_DRV_DIR)/dnssd.o $(CLIENTLIBOBJS)
 	mkdir -p $(INSTALL_DIR)/priv
 	$(LD) $+ $(ERL_LDFLAGS) $(LDFLAGS) -o $@
 
 clean:
-	rm -rf $(SRC_ROOT_DIR) $(BUILD_DRV_DIR) $(BUILD_MDNSD_DIR)
+	rm -rf $(SRC_ROOT_DIR2) $(BUILD_DRV_DIR) $(BUILD_MDNSD_DIR)
