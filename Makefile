@@ -9,8 +9,8 @@
 # ERL_LDFLAGS	additional linker flags for projects referencing Erlang libraries
 
 MDNSRESPONDER_VSN = 878.200.35
-MDNSRESPONDER_URL = https://github.com/apple-oss-distributions/mDNSResponder/archive/refs/tags/mDNSResponder-$(MDNSRESPONDER_VSN).zip
-MDNSRESPONDER_URL = https://opensource.apple.com/tarballs/mDNSResponder/mDNSResponder-$(MDNSRESPONDER_VSN).tar.gz
+MDNSRESPONDER_URL = https://github.com/apple-oss-distributions/mDNSResponder/archive/refs/tags/mDNSResponder-$(MDNSRESPONDER_VSN).tar.gz
+# MDNSRESPONDER_URL = https://opensource.apple.com/tarballs/mDNSResponder/mDNSResponder-$(MDNSRESPONDER_VSN).tar.gz
 
 UNAME = $(shell uname -s)
 
