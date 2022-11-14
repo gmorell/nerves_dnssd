@@ -10,7 +10,8 @@
 
 MDNSRESPONDER_VSN = 878.200.35
 # MDNSRESPONDER_URL = https://github.com/apple-oss-distributions/mDNSResponder/archive/refs/tags/mDNSResponder-$(MDNSRESPONDER_VSN).tar.gz
-MDNSRESPONDER_URL = https://codeload.github.com/apple-oss-distributions/mDNSResponder/tar.gz/refs/tags/mDNSResponder-$(MDNSRESPONDER_VSN)
+# MDNSRESPONDER_URL = https://codeload.github.com/apple-oss-distributions/mDNSResponder/tar.gz/refs/tags/mDNSResponder-$(MDNSRESPONDER_VSN)
+MDNSRESPONDER_URL=  https://codeload.github.com/apple-oss-distributions/mDNSResponder/tar.gz/refs/tags/mDNSResponder-878.200.35
 # MDNSRESPONDER_URL = https://opensource.apple.com/tarballs/mDNSResponder/mDNSResponder-$(MDNSRESPONDER_VSN).tar.gz
 
 UNAME = $(shell uname -s)
