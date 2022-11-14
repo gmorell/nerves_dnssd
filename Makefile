@@ -44,6 +44,7 @@ LDFLAGS +=
 
 BUILD_DIR ?= _build/make
 SRC_ROOT_DIR = $(BUILD_DIR)/mDNSResponder-$(MDNSRESPONDER_VSN)
+SRC_ROOT_DIR2 = $(BUILD_DIR)/mDNSResponder-mDNSResponder-$(MDNSRESPONDER_VSN)
 BUILD_DRV_DIR = $(BUILD_DIR)/dnssd_drv
 BUILD_MDNSD_DIR = $(BUILD_DIR)/mdnsd
 INSTALL_DIR ?= .
@@ -77,7 +78,7 @@ deps/mDNSResponder-$(MDNSRESPONDER_VSN).tar.gz:
 $(SRC_ROOT_DIR): deps/mDNSResponder-$(MDNSRESPONDER_VSN).tar.gz c_src/mDNSResponder.patch
 	mkdir -p $(BUILD_DIR)
 	tar xzf deps/mDNSResponder-$(MDNSRESPONDER_VSN).tar.gz -C $(BUILD_DIR)
-	patch -p 1 -d $(SRC_ROOT_DIR) < c_src/mDNSResponder.patch
+	patch -p 1 -d $(SRC_ROOT_DIR2) < c_src/mDNSResponder.patch
 
 ##
 # The daemon
